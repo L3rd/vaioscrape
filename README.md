@@ -32,7 +32,7 @@ Dev & testing was done in a debian based distro (ubuntu or raspbian would work).
 
 ## Setup & Go
 ```
-sudo apt install -y python python-pip virtualenv wget screen
+sudo apt install -y git python python-pip virtualenv wget screen
 cd ~/my_massive_storage_space
 git clone https://github.com/jwhittaker/vaioscrape.git && cd vaioscrape
 virtualenv env
@@ -40,5 +40,11 @@ source env/bin/activate
 pip install bs4 requests lxml
 ./run.py
 ```
-
 In another window monitor downloads with: `tail -f ./vaiodownload.log`
+
+## Tweaks
+run.py may be tweaked to add more logic to parallel downloads. Or simply remove the download parts of the code and let it just gather json files and the flat filelist of URLs. Afterwards, a more well-made download logic could go through filelist.txt. As-is, with a flat drivers dir, wget should be able to ignore duplicate downloads as similiar models will likely use the same files.
+
+## Future
+Once the data and files are gathered, a front end or query tool of some kind will be needed to sort the installation files themselves. They will still be stored flat like on the Sony site! `readjson.py` could be used as a foundation for this to copy files locally based on the `<model>.json` files presented.
+
