@@ -26,17 +26,15 @@ Example grab-all script using the above mentioned scripts along with wget called
 Example option to input one model in as a shell arg and download its meta data and drivers. Probably a better option to use than run.py, for there are better ways to do parallel downloads. It also will build upon filelist.txt as you use it.
 onedl.png
 
-Pathway to the firehose of data:
+## Pathway to the firehose of data:
 Run at your own risk! No guarantees of best practices, best conventions, or safety to your system and network resources.
-Setup was done in a debian based distro (ubuntu or raspbian would work).
-virtualenv is a python environment re-direct so that python module installs don't override what's available to your normal OS env.
-pip is like "apt-get" for python
+Dev & testing was done in a debian based distro (ubuntu or raspbian would work).
 
-## Setup
+## Setup & Go
 ```
 sudo apt install -y python python-pip virtualenv wget screen
 cd ~/my_massive_storage_space
-tar -xvf sonyvaiodrivers.tar
+git clone https://github.com/jwhittaker/vaioscrape.git && cd vaioscrape
 virtualenv env
 source env/bin/activate
 pip install bs4 requests lxml
