@@ -15,6 +15,7 @@ def firehose(pclist):
         count = 0
         pc = vaio(model)
         pcdrivers = pc.filelist
+        call(["screen", "-dm", "wget", "-a", "./vaiodownload.log", "-t", "5", "-c", "-nc", "-nv", "-P", "./images/", pc.metadata['image']])
         for url in pcdrivers:
         # comment out download(url) to just collect a list of files and the jsons.
             download(url)
